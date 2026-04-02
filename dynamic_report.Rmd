@@ -1,0 +1,153 @@
+---
+title: My dynamic report
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+
+```
+
+```{css}
+body {
+  
+  background-color: #ABCDEF;
+  color: #24292e;
+  font:
+  1.2rem "Fira Sans",
+  sans-serif;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+}
+
+p {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  margin-bottom: 1.25rem;
+  
+  color: black;
+  
+  display: block;
+  
+}
+
+h2 {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+```
+
+## Sleep Duration Impact on Daily Physical Activity
+
+### Question: Why Do We Sleep?
+
+![](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNWc5dXgzMXA5aWE4am95cDlmbnY0Mm5jbHpmZm82bzc2M2RjcXl3bCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mkhMTALnrYRLnuoe5P/giphy.gif)
+
+
+Sleep impacts various aspects of our life ranging from daily performances, physical and mental well being to cognitive functions. <br> <br>
+In this report we will explore how sleep duration affects daily physical activity.
+
+```{r}
+
+library(tidyverse)
+# Read csv file data into data frame
+logged_data <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTYFL_2sQj4V1Oh7M2WdHTJk2IOEFcffXXOGsNaGJUfF3s7tHrDZpguYu6NCTO1LqTR5vvlP5OcQYvi/pub?gid=1367836881&single=true&output=csv") %>%
+  # Use a pipe to pass the data frame into rename() to rename the variables of logged_data
+  rename(sleep_category = 2, exercise_category = 3, step_category = 4, active_calories_burnt = 5) 
+
+
+# Plots and numeric summaries are used in the final report -------------------------------------------------------------------------------
+
+# Create an ordered factor for sleep categories to display visual order in the plot
+ordered_logged_data <- logged_data %>%
+  mutate(sleep_factor = factor(sleep_category, 
+                                 levels = c("Very little (Less than 4 hours)",
+                                            "Little (4 hours to 6 hours)",
+                                            "Moderate (6 hours to 8 hours)",
+                                            "Enough (8 to 10 hours)",
+                                            "A lot (More than 10 hours)")))
+
+```
+
+### Plot 1 - Exercise Distribution Across Sleep Duration Categories
+
+```{r fig.width = 10, fig.height = 5}
+
+
+# This plot displays exercise distribution across sleep duration categories
+exercise_distribution_plot <- ordered_logged_data %>%
+  ggplot() + 
+  geom_bar(aes(y = sleep_factor, fill = exercise_category)) +
+  labs(title = "Exercise Distribution Across Sleep Duration Categories",
+       subtitle = "Exploring how different amounts of sleep duration relate to daily exercise levels",
+       caption = "Source: Stats 220 Survey responses (Apple Health & Fitness Apps)",
+       y = "Sleep Category",
+       x = "Number of Sleep Observations")
+
+# Call the function to display plot
+exercise_distribution_plot
+
+```
+
+
+This plot displays how exercise levels are distributed across different sleep duration categories. <br> <br>
+Overall, individuals with **moderate to a lot** of sleep appear to have a **higher** frequency of **moderate to high** exercise levels, while those with **very little or little** sleep tend to show **lower** levels of exercise. 
+<br> <br>
+This suggests a potential relationship between **longer sleep duration and higher levels of exercise.**
+
+
+### Plot 2 - Distribution of Step Counts Across Sleep Duration Categories
+
+
+```{r fig.width = 10, fig.height = 5}
+
+# This plot displays step count distribution across sleep duration categories
+step_count_distribution_plot <- ordered_logged_data %>%
+  ggplot() + 
+  geom_bar(aes(y = sleep_factor, fill = step_category)) +
+  labs(title = "Distribution of Step Counts Across Sleep Duration Categories",
+       subtitle = "Exploring how different amounts of sleep duration relate to daily step counts",
+       caption = "Source: Stats 220 Survey responses (Apple Health & Fitness Apps)",
+       y = "Sleep Category",
+       x = "Number of Sleep Observations")
+
+# Call the function to display plot
+step_count_distribution_plot
+
+
+```
+
+
+This plot displays how step count categories are distributed across different sleep duration categories. 
+<br> <br>
+Individuals with **moderate to a lot** of sleep tend to have **higher** step count categories. 
+<br> <br>
+This suggests a potential relationship between **longer sleep duration and increased daily movement.**
+
+
+```{r}
+
+#Most common sleep category's observation count
+sleep_counts <- table(logged_data$sleep_category)
+
+most_common_sleep_category <- names(sleep_counts)[which.max(sleep_counts)]
+
+max_sleep_count <- max(sleep_counts)
+
+
+```
+
+The most common sleep category was `r most_common_sleep_category`, with `r max_sleep_count` observations.
