@@ -17,4 +17,4 @@
 * I currently gym four times a week, check out this [muscle map](https://musclewiki.com/) that loads different workouts for you depending on the muscle group you want to train! <br>
 
 As we are heading into the mid semester break I'm feeling: <br>
-![](https://tenor.com/view/eyes-chill-relax-mask-penguin-gif-11020713019768064281)
+![](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYm1senlnbGR0OWM0Nm82bnZrcmxwbmJveTFkbzE1YWFwdWd5dmRvOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h7DyKGq716JMI/giphy.gif)
