@@ -5,9 +5,10 @@
 ### This is my repo for STATS 220.<br>
 #### There will be five projects displayed:
 1. `Project 1`: Creating HTML by combining modern technologies **`(Completed)`**
-2. `Project 2`: Creating web-based dynamic reporting systems *`(In Progress)`*
-4. `Project 4`: Creating visual-based `(Pending)`
-5. `Project 5`: Communication with data and technology `(Pending)`
+2. `Project 2`: Creating web-based dynamic reporting systems **`(Completed)`**
+3. `Project 3`: Develop communication with data and technology `(Pending)`
+4. `Project 4`: Manipulate data for visualisation `(Pending)`
+5. `Project 5`: Develop strategies to combine data from different sourcesCommunication with data and technology `(Pending)`
 
 #### A little about me:
 
