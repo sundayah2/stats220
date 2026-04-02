@@ -140,11 +140,13 @@ This suggests a potential relationship between **longer sleep duration and incre
 
 ```{r}
 
-#Most common sleep category's observation count
+# Observation count of each sleep category
 sleep_counts <- table(logged_data$sleep_category)
 
+# Most common sleep category
 most_common_sleep_category <- names(sleep_counts)[which.max(sleep_counts)]
 
+# Sleep category with the highest frequency
 max_sleep_count <- max(sleep_counts)
 
 
