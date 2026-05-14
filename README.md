@@ -7,7 +7,7 @@
 1. `Project 1`: Creating HTML by combining modern technologies **`(Completed)`**
 2. `Project 2`: Creating web-based dynamic reporting systems **`(Completed)`**
 3. `Project 3`: Develop communication with data and technology **`(Completed)`**
-4. `Project 4`: Manipulate data for visualisation `(In Progress)`
+4. `Project 4`: Manipulate data for visualisation **`(Completed)`**
 5. `Project 5`: Develop strategies to combine data from different sourcesCommunication with data and technology `(Pending)`
 
 #### A little about me:
